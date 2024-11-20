@@ -1,4 +1,4 @@
-# <span style="color:blue;">이미지 색상화 및 손실 부분 복원 AI 경진대회</span>
+# <span style="color:red;">이미지 색상화 및 손실 부분 복원 AI 경진대회</span>
 
 ## 프로젝트 개요
 - **프로젝트 이름**: <span style="color:green;">이미지 색상화 및 손실 부분 복원</span>
