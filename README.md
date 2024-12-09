@@ -87,18 +87,25 @@
 
 ## 6. 실험 결과
 
-![image](https://github.com/user-attachments/assets/7a527ba9-d39a-44fc-9fae-42b40ae521db)
+
+
 
 
 손상 이미지
+
+
 ![TRAIN_00010](https://github.com/user-attachments/assets/f385fa6c-2b53-4aed-b3af-c2e384782dd1)
 
 
 원본 이미지
+
+
 ![TRAIN_00010 (gt)](https://github.com/user-attachments/assets/a76f542a-b174-4f3e-b35e-18f3d06f9744)
 
 
 복원 이미지
+
+
 ![TEST_000](https://github.com/user-attachments/assets/e44700f3-823b-4732-b76e-677ebe997450)
 
 
@@ -116,3 +123,43 @@
 
 - [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
 - [EfficientNet](https://arxiv.org/abs/1905.11946)
+
+## 9. 실험 과정 설명
+
+
+
+![image](https://github.com/user-attachments/assets/7a527ba9-d39a-44fc-9fae-42b40ae521db)
+
+
+### 1. 학습 및 검증 손실 (Train and Validation Loss)
+- 손실(Loss)은 학습이 진행됨에 따라 꾸준히 감소하고 있습니다.
+- 초기 학습 단계에서 급격히 감소한 뒤, 후반부에는 안정적인 수준으로 수렴하는 모습을 보입니다.
+- 검증 손실도 학습 손실과 비슷한 경향을 보이며, 학습이 잘 이루어지고 있음을 확인할 수 있습니다.
+
+### 2. 검증 SSIM (Validation SSIM)
+- SSIM(Structural Similarity Index)은 학습이 진행됨에 따라 지속적으로 향상됩니다.
+- 초반에 변동성이 있지만, 학습 후반부로 갈수록 안정적으로 상승하여 0.88에 도달했습니다.
+- 이는 복원된 이미지가 원본 이미지와 점점 더 유사해지고 있음을 나타냅니다.
+
+### 3. Discriminator 및 Generator 손실 (Loss D & Loss G)
+- Discriminator와 Generator의 손실 변화는 GAN 학습의 동적 특성을 보여줍니다.
+- Discriminator의 손실은 상승과 하강을 반복하며 안정적인 학습을 나타냅니다.
+- Generator의 손실은 상대적으로 낮은 수준에서 유지되며, 점진적으로 손상된 영역 복원 능력이 향상되고 있음을 시사합니다.
+
+### 4. 검증 Discriminator 및 Generator 손실 (Val loss D & Val loss G)
+- 검증 단계에서도 유사한 패턴을 보여주며, Discriminator와 Generator의 균형이 학습 동안 잘 유지되었습니다.
+- Discriminator의 손실이 안정화되었으며, Generator는 점차 손실을 줄이며 복원 품질을 개선했습니다.
+
+### 5. 검증 색상 유사도 (Validation Color Similarity)
+- 컬러 히스토그램 기반 유사도가 학습 진행과 함께 꾸준히 상승하였습니다.
+- 학습 후반부에는 0.60에 도달하여 컬러 복원 품질이 초기 대비 크게 향상되었음을 확인할 수 있습니다.
+
+### 6. Learning Rate 스케줄러 (Learning Rate Scheduler)
+- Learning Rate가 주기적으로 변화하도록 설정하여 학습을 최적화하였습니다.
+- 학습 속도를 조정함으로써 안정적인 수렴을 도왔습니다.
+
+
+---
+
+위 과정은 학습과 검증의 다양한 손실과 메트릭스를 종합적으로 평가하여 모델의 성능을 지속적으로 모니터링한 결과입니다. 특히 SSIM과 색상 유사도의 상승은 모델이 손상된 이미지 복원 및 컬러 변환에서 점점 더 높은 품질을 달성하고 있음을 보여줍니다.
+
