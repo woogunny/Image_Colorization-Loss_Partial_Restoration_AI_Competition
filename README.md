@@ -87,7 +87,7 @@
 
 ## 6. 실험 결과
 
-
+![Uploading image.png…]()
 
 손상 이미지
 ![TRAIN_00010](https://github.com/user-attachments/assets/f385fa6c-2b53-4aed-b3af-c2e384782dd1)
